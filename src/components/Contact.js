@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faParagraph } from '@fortawesome/free-solid-svg-icons';
-import { faClone } from '@fortawesome/free-regular-svg-icons';
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 import Button from './Button';
 
 const Contact = ({
 
 }) => {
+  const clipboardRef = useRef(null);
+
   return (
     <section>
       <h2>Get in touch with me</h2>
       <div className="contact">
-      <p>Reach out via <FontAwesomeIcon icon={faClone} /> <b>arlo.s.adams@gmail.com</b> or use the contact form below:</p>
       <form>
         <div className="input-group">
           <input 
@@ -47,6 +47,19 @@ const Contact = ({
           text={<><FontAwesomeIcon icon={faEnvelope} />&nbsp;&nbsp;Send!</>}
         />
       </form>
+      <div className="email">
+      <span>or email me directly at</span>
+      <button className="copy-btn"
+        onClick={() => {
+          navigator.clipboard.writeText("arlo.s.adams@gmail.com");
+          clipboardRef.current.classList.add("animate");
+          setTimeout(() => {
+            clipboardRef.current.classList.remove("animate");
+          }, 1000);
+        }}
+        ref={clipboardRef}
+      >arlo.s.adams@gmail.com</button>
+      </div>
       </div>
     </section>
   )

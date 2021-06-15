@@ -15,6 +15,7 @@ export default function HTML(props) {
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Ubuntu+Mono&display=swap" rel="stylesheet"/>
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

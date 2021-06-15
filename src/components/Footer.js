@@ -7,13 +7,13 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <a href=""><FontAwesomeIcon icon={faLinkedin} />&nbsp;&nbsp;LinkedIn</a>
+          <a href="" className="link"><FontAwesomeIcon icon={faLinkedin} />&nbsp;&nbsp;LinkedIn</a>
         </li>
         <li>
-          <a href=""><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
+          <a href="" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
         </li>
         <li>
-          <a href=""><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
+          <a href="" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
         </li>
       </ul>
       <p className="copyright">&copy; Arlo Adams, twentytwentyone</p>
