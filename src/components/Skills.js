@@ -23,6 +23,7 @@ const Skills = () => {
 
   return (
     <div className="skills full-bleed">
+      <div className="anchor" id="skills"></div>
       {/* <h2>Skills & Technologies</h2> */}
       <div className="skills-list" ref={skillsRef}>
         <div className="skill">

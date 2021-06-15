@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import '../styles/normalize.css';
 import '../styles/main.scss';
 
@@ -9,45 +9,48 @@ import Hero from '../components/Hero';
 import Project from '../components/Project';
 import Skills from '../components/Skills';
 
-import useIntersectionObserver from "../hooks/useIntersectionObserver";
-
-import { gsap } from 'gsap';
-
 import { projects } from '../data';
 
 const IndexPage = () => {
-  const containerRef = useRef(null);
-  useIntersectionObserver(containerRef, () => console.log("BLAH"));
+  const [theme, setTheme] = useState("theme-dark");
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === "theme-dark" ? "theme-light" : "theme-dark");
+  }
 
   return (
-    <div className="wrapper">
-      <Header />
-     {/*  <main> */}
-        <Hero />
-        <Skills />
-        <section className="full-bleed">
-          <h2 ref={containerRef}>Check out some of my projects</h2>
+    <div className={"theme-wrapper " + theme}>
+      <div className="wrapper">
+        <Header theme={theme} toggleTheme={toggleTheme}/>
+      {/*  <main> */}
+          <Hero />
+          <Skills />
+          <div className="anchor" id="projects"></div>
+          <section className="full-bleed">
 
-          {projects.map((project, id) => {
-            return (
-              <Project 
-                key={project.title}
-                title={project.title}
-                screenshotType={project.screenshotType}
-                imageSrc={project.imageSrc}
-                description={project.description}
-                subdescription={project.technologies}
-                projectLink={project.liveLink}
-                repoLink={project.repoLink}
-                id={id}
-              />
-            );
-          })}
+            <h2>Check out some of my projects</h2>
 
-        </section>
-        <Contact />
-      {/* </main> */}
-      <Footer />
+            {projects.map((project, id) => {
+              return (
+                <Project 
+                  key={project.title}
+                  title={project.title}
+                  screenshotType={project.screenshotType}
+                  imageSrc={project.imageSrc}
+                  description={project.description}
+                  subdescription={project.technologies}
+                  projectLink={project.liveLink}
+                  repoLink={project.repoLink}
+                  id={id}
+                />
+              );
+            })}
+
+          </section>
+          <Contact />
+        {/* </main> */}
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -11,7 +11,10 @@ const Contact = ({
 
   return (
     <section>
+      <div className="anchor" id="contact"></div>
+
       <h2>Get in touch with me</h2>
+
       <div className="contact">
       <form>
         <div className="input-group">
@@ -48,7 +51,7 @@ const Contact = ({
         />
       </form>
       <div className="email">
-      <span>or email me directly at</span>
+      <span>Or email me directly at:</span>
       <button className="copy-btn"
         onClick={() => {
           navigator.clipboard.writeText("arlo.s.adams@gmail.com");

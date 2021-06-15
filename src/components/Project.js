@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Button from './Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
@@ -20,24 +20,29 @@ const Project = ({
   const projectRef = useRef(null);
   const screenshotRef = useRef(null);
   const dataRefs = useRef([]);
+  const [doAnim, setDoAnim] = useState(true);
 
   const onIntersection = (entries) => {
     const [ entry ] = entries;
-    if (!entry.isIntersecting) return;
+    if (!entry.isIntersecting || !doAnim) return;
+
+    let tl = gsap.timeline();
 
     if (id % 2 === 0) {
-      gsap.from(screenshotRef.current, {duration: 1, x: 100, opacity: 0, ease: "power2.out"});
+      gsap.from(screenshotRef.current, {duration: 1, x: 100, opacity: 0, ease: "power2.out", delay: .3});
       dataRefs.current.forEach(ref => {
-        gsap.from(ref, {duration: .7, x: -100, opacity: 0});
+        gsap.fromTo(ref, {duration: 1, x: -100, opacity: 0}, {x:0, opacity: 1, delay: .3});
       })
   
     } else {
-      gsap.from(screenshotRef.current, {duration: 1, x: -100, opacity: 0});
+      gsap.from(screenshotRef.current, {duration: 1, x: -100, opacity: 0, delay: .3});
       dataRefs.current.forEach(ref => {
-        gsap.from(ref, {duration: .7, x: 100, opacity: 0});
+        gsap.fromTo(ref, {duration: 1, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .3});
       })
   
     }
+
+    setDoAnim(false);
   }
 
   useIntersectionObserver(projectRef, onIntersection)

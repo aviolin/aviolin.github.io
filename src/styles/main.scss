@@ -11,7 +11,16 @@ $color-background: #f5f5f5;
 $color-background-alternate: #fff;
 $color-background-faded: #f5f5f5;
 
-$color-primary: #4beea2;
+$color-primary: #6d44b1;
+$color-primary-btn-text: #f5f5f5;
+$color-text: #45414b;
+$color-gray: #8d8ea0;
+$color-subtle: #ddd;
+$color-background: #e7e7eb;
+$color-background-alternate: #f3f3f8;
+$color-background-faded: #e7e7eb;
+
+$color-primary: #4ba5ee;
 $color-primary-btn-text: #2e2e2e;
 $color-text: #aaabc4;
 $color-gray: #8d8ea0;
@@ -19,6 +28,54 @@ $color-subtle: #55505c;
 $color-background: #2e2e2e;
 $color-background-alternate: #272727;
 $color-background-faded: #2e2e2e;
+
+
+$themes: (
+  light: (
+    color-primary: #6d44b1,
+    color-primary-btn-text: #f5f5f5,
+    color-text: #45414b,
+    color-gray: #8d8ea0,
+    color-subtle: #ddd,
+    color-background: #e7e7eb,
+    color-background-alternate: #f3f3f8,
+    color-background-faded: #e7e7eb,
+  ),
+  dark: (
+    color-primary: #4ba5ee,
+    color-primary-btn-text: #2e2e2e,
+    color-text: #aaabc4,
+    color-gray: #8d8ea0,
+    color-subtle: #55505c,
+    color-background: #2e2e2e,
+    color-background-alternate: #272727,
+    color-background-faded: #2e2e2e,
+  ),
+);
+
+
+// implementation here: https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
 
 
 $border-radius: 0;
@@ -43,15 +100,26 @@ $project-padding-lg: 7rem;
   margin: auto;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
-  color: $color-text;
-  background-color: $color-background;
+}
+
+.anchor {
+  transform: translateY(-5rem);
+
+  &#skills {
+    transform: translateY(-20rem);
+  }
 }
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr Min($content-width, 100%) 1fr;
+  transition: background-color .5s;
 
   > * {
     grid-column: 2;
@@ -61,16 +129,24 @@ body {
     width: 100%;
     grid-column: 1 / -1;
   }
+
+  @include themify($themes) {
+    color: themed('color-text');
+    background-color: themed('color-background');
+  }
 }
 
 h2 {
   @include width-clamp;
-  color: $color-gray;
   font-weight: 100;
   text-align: left;
   width: 100%;
   padding: 0 $page-padding;
   font-size: $font-size-xxlg;
+
+  @include themify($themes) {
+    color: themed('color-gray');
+  }
 }
 
 h3 {
@@ -82,12 +158,16 @@ h3 {
 
 header {
   width: 100%;
-  //background: linear-gradient(to top, #0000 0%, $color-background 50%);
-  background-color: $color-background-faded;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
+
+  transition: background-color .5s;
+
+  @include themify($themes) {
+    background-color: themed('color-background');
+  }
 
   > div {
     @include width-clamp;
@@ -96,11 +176,16 @@ header {
     align-items: center;
     font-size: $font-size-lg;
     padding: 2rem 2rem 2rem 2rem;
+    visibility: hidden;
   }
 
   .logo {
     font-weight: bold;
     font-family: 'Courier New', monospace;
+
+    a.link {
+      font-size: $font-size-lg;
+    }
   }
 
   .horizontal-nav {
@@ -114,6 +199,7 @@ header {
   height: 100vh;
   display: grid;
   place-content: center;
+  visibility: hidden;
 
   > div {
     width: 100%;
@@ -124,8 +210,11 @@ header {
   }
 
   span {
-    color: $color-primary;
     font-size: $font-size-xxlg;
+
+    @include themify($themes) {
+      color: themed('color-primary');
+    }
   }
 
   p {
@@ -147,8 +236,21 @@ header {
     .scroll-arrow {
       font-size: 2rem;
       margin-top: 5rem;
-      color: $color-primary;
+      animation: arrow-anim 1s ease-in-out alternate infinite;
+
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
+  }
+}
+
+@keyframes arrow-anim {
+  0% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -161,29 +263,45 @@ a, button {
   display: block;
   cursor: pointer;
   transition: .3s;
-
+  text-align: center;
   text-decoration: none;
-  color: $color-text;
+
+  @include themify($themes) {
+    color: themed('color-text');
+  }
 
   &.primary {
-    background-color: $color-primary;
-    color: $color-primary-btn-text;
     border: $border-width solid $color-primary;
+
+    @include themify($themes) {
+      color: themed('color-primary-btn-text');
+      background-color: themed('color-primary');
+      border-color: themed('color-primary');
+    }
 
     &:hover {
       background-color: transparent;
-      color: $color-primary;
+
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
   }
 
   &.secondary {
     background-color: transparent;
-    color: $color-gray;
     border: $border-width solid $color-subtle;
 
+    @include themify($themes) {
+      color: themed('color-gray');
+      border-color: themed('color-subtle')
+    }
+
     &:hover {
-      border-color: $color-primary;
-      color: $color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+        border-color: themed('color-primary')
+      }
     }
   }
 
@@ -208,16 +326,37 @@ a, button {
     }
 
     &:after {
-      background-color: $color-primary;
       transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+      @include themify($themes) {
+        background-color: themed('color-primary');
+      }
     }
 
     &:hover {
-      color: $color-primary;
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
 
       &:before, &:after {
         width: 100%;
         opacity: 1;
+      }
+    }
+  }
+
+  &.theme-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transition: .3s;
+    transform: scale(1.7);
+
+    &:hover {
+      transform: scale(2);
+
+      @include themify($themes) {
+        color: themed('color-primary');
       }
     }
   }
@@ -234,7 +373,10 @@ a, button {
     transition: .3s;
     padding: 1rem 0 0 0;
     white-space: pre;
-    color: $color-primary;
+
+    @include themify($themes) {
+      color: themed('color-primary');
+    }
 
     &.animate {
       animation: clipboard-anim 1s ease-in-out;
@@ -250,9 +392,12 @@ a, button {
       left: 0;
       padding: 0;
       box-sizing: border-box;
-      color: $color-text;
       opacity: 1;
       transition: .3s;
+
+      @include themify($themes) {
+        color: themed('color-text');
+      }
     }
 
   }
@@ -279,12 +424,21 @@ section {
 }
 
 .skills {
-  background-color: $color-background-alternate;
   padding: 3rem 0;
-  color: $color-text;
+  margin-bottom: $project-padding;
+
+  transition: background-color .5s;
+
+  @include themify($themes) {
+    color: themed('color-text');
+    background-color: themed('color-background-alternate');
+  }
   h2 {
     text-align: center;
-    color: $color-background;
+
+    @include themify($themes) {
+      color: themed('color-background');
+    }
   }
 
   .skills-list {
@@ -302,7 +456,7 @@ section {
       align-items: center;
       flex-basis: 33%;
       text-align: center;
-      transition: transform .3s;
+      transition: transform .3s, color .3s;
       padding: .5rem;
 
       .icon {
@@ -312,6 +466,10 @@ section {
 
       &:hover {
         transform: scale(1.2);
+
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
       }
     }
   }
@@ -332,9 +490,12 @@ section {
       display: flex;
       flex-wrap: wrap;
       font-size: $font-size-sm;
-      color: $color-gray;
       line-height: $font-size-xlg;
       margin-bottom: 2rem;
+
+      @include themify($themes) {
+        color: themed('color-gray');
+      }
 
       > span {
         margin-right: 1rem;
@@ -349,13 +510,18 @@ section {
   }  
 
   &:nth-child(odd) {
-    background-color: $color-background-alternate;
+    transition: background-color .5s;
+
+    @include themify($themes) {
+      background-color: themed('color-background-alternate');
+    }
   }
 
 }
 
 .contact {
   padding: $page-padding;
+  margin-top: $project-padding;
 
   p {
     font-size: $font-size;
@@ -373,7 +539,7 @@ section {
     text-align: left;
     font-size: $font-size;
     font-weight: 100;
-    margin-top: 2rem;
+    margin-top: $project-padding;
 
     span {
       padding-top: 1rem;
@@ -391,8 +557,11 @@ section {
     top: 0;
     transition: .2s ease-out;
     font-size: $font-size;
-    color: $color-gray;
     cursor: text;
+
+    @include themify($themes) {
+      color: themed('color-gray');
+    }
   }
 
   input[type=text],
@@ -403,26 +572,36 @@ section {
     border-bottom: $border-width solid $color-gray;
     display: block;
     width: 100%;
-    padding-bottom: .5rem;
+    padding-bottom: 1.3rem;
     transition: .2s ease-out;
-    color: $color-text;
+    font-size: $font-size;
+
+    @include themify($themes) {
+      color: themed('color-text');
+    }
 
     &:focus {
       outline: none;
-      border-color: $color-primary;
+
+      @include themify($themes) {
+        border-color: themed('color-primary');
+      }
     }
 
     &:focus ~ label,
     &:valid ~ label {
       top: -1.5rem;
       font-size: $font-size-sm;
-      color: $color-primary;
+
+      @include themify($themes) {
+        color: themed('color-primary');
+      }
     }
   }
 
   textarea {
-    height: 2rem;
-    min-height: 2rem;
+    height: 3rem;
+    min-height: 3rem;
   }
 
   textarea:focus,
@@ -434,21 +613,29 @@ section {
 
 
 footer {
-  text-align: center;
+  text-align: left;
   padding: $page-padding;
 
   ul {
     padding: 0;
+    margin-bottom: 2rem;
 
     li {
       list-style-type: none;
-      margin: 1rem;
+      margin: 1rem 0;
+
+      a {
+        display: inline;
+      }
     }
   }
 
   .copyright {
     font-size: $font-size;
-    color: $color-gray;
+
+    @include themify($themes) {
+      color: themed('color-gray');
+    }
   }
 }
 
@@ -460,7 +647,7 @@ footer {
 
   .mobile-container {
     border-radius: 3rem;
-    border: 5px solid $color-subtle;
+    border: 5px solid transparent;
     border-bottom: none;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -468,11 +655,19 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include themify($themes) {
+      border-color: themed('color-subtle');
+    }
   
     > span {
       position: absolute;
-      border-top: 5px solid $color-subtle;
+      border-top: 5px solid transparent;
       width: 3rem;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
   
       &.btn1 {
         top: -9px;
@@ -496,11 +691,15 @@ footer {
     }
   
     .circle {
-      border: 3px solid $color-subtle;
+      border: 3px solid transparent;
       border-radius: 50%;
       width: 1rem;
       height: 1rem;
       margin: 1rem;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
     }
   
     .rectangle {
@@ -508,17 +707,25 @@ footer {
       border-radius: 1rem;
       width: 4rem;
       height: 1rem;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
     }
   
     .image-container {
       margin: 1rem;
       margin-bottom: 0;
       overflow-y: hidden;
-      border: 5px solid $color-subtle;
+      border: 5px solid transparent;
       border-radius: 1rem;
       border-bottom: 0;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
       img {
         width: 100%;
       }
@@ -527,28 +734,38 @@ footer {
 
   .desktop-container {
     border-radius: 1rem;
-    border: 5px solid $color-subtle;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
-
-
+    border: 5px solid transparent;
+    
+    @include themify($themes) {
+      border-color: themed('color-subtle');
+    }
     .circle {
-      border: 3px solid $color-subtle;
+      border: 3px solid transparent;
       border-radius: 50%;
       width: .5rem;
       height: .5rem;
       margin-bottom: .5rem;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
     }
 
     .image-container {
       max-height: 10rem;
       overflow-y: hidden;
       margin: .5rem;
-      border: 5px solid $color-subtle;
+      border: 5px solid transparent;
       border-radius: 1rem;
+
+      @include themify($themes) {
+        border-color: themed('color-subtle');
+      }
 
       img {
         width: 100%;
@@ -556,15 +773,18 @@ footer {
     }
 
     .triangle {
-      border-bottom: 2rem solid $color-subtle;
+      border-bottom: 2rem solid transparent;
       border-left: 1rem solid transparent;
       border-right: 1rem solid transparent;
       height: 0;
       width: 3rem;
       z-index: 0;
-
       position: absolute;
       top: 100%;
+
+      @include themify($themes) {
+        border-bottom-color: themed('color-subtle');
+      }
     }
   }
 }
@@ -573,6 +793,14 @@ footer {
 @media only screen and (min-width: 768px) {
   h2 {
     text-align: center;
+  }
+
+  .anchor {
+    transform: translateY(-10rem);
+  
+    &#skills {
+      transform: translateY(-20rem);
+    }
   }
 
   header {
@@ -589,6 +817,7 @@ footer {
         padding: 0;
         margin: 0;
         display: flex;
+        align-items: center;
         li {
           list-style-type: none;
           margin-left: 2rem;
@@ -612,7 +841,9 @@ footer {
       }
 
       &:hover {
-        color: $color-primary;
+        @include themify($themes) {
+          color: themed('color-primary');
+        }
   
         &:before {
           opacity: 1;
@@ -628,10 +859,6 @@ footer {
       flex-direction: row;
       justify-content: center;
       gap: 1rem;
-
-      button {
-        max-width: 15rem;
-      }
     }
   }
 
@@ -648,9 +875,7 @@ footer {
       display: grid;
       grid-template-columns: .5fr .5fr;
       grid-template-rows: auto auto auto auto;
-  
       padding: 0rem $page-padding 0 $page-padding;
-      //border-radius: 2rem;
   
       h3 {
         grid-column: 1 / 2;
@@ -702,6 +927,7 @@ footer {
 
   .contact {
 
+
     form {
       grid-template-columns: .5fr .5fr;
       grid-template-rows: auto auto auto;
@@ -717,7 +943,7 @@ footer {
         grid-row: 3 / 4;
 
         max-width: 15rem;
-        justify-self: end;
+        justify-self: center;
       }
     }
 
@@ -727,11 +953,15 @@ footer {
   }
 
   footer {
+    text-align: center;
 
     ul {
       display: flex;
       justify-content: center;
+
+      li {
+        margin: 1rem;
+      }
     }
   }
-
 }

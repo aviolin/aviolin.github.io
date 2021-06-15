@@ -10,7 +10,7 @@ const Footer = () => {
           <a href="" className="link"><FontAwesomeIcon icon={faLinkedin} />&nbsp;&nbsp;LinkedIn</a>
         </li>
         <li>
-          <a href="" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
+          <a href="https://aviolin.github.com" target="_blank" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
         </li>
         <li>
           <a href="" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
