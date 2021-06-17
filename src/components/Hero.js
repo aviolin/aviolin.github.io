@@ -32,8 +32,8 @@ const Hero = () => {
       </h1>
       <div className="buttons" ref={buttonsRef}>
         <Button
-          text="Projects"
-          link="#projects"
+          text="My Work"
+          link="#my-work"
         />
         <Button 
           style="secondary"

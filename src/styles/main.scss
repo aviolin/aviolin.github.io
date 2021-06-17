@@ -390,6 +390,8 @@ a, button {
     transition: .3s;
     padding: 1rem 0 0 0;
     white-space: pre;
+    display: inline;
+    width: auto;
 
     @include themify($themes) {
       color: themed('color-primary');
@@ -823,6 +825,18 @@ footer {
   }
 }
 
+.error404 {
+  min-height: 100vh;
+  text-align: center;
+  padding-top: 10rem;
+  background-color: #2e2e2e;
+
+  a {
+    max-width: 15rem;
+    justify-self: center;
+  }
+}
+
 
 @media only screen and (min-width: 768px) {
   h2 {
@@ -833,7 +847,7 @@ footer {
     transform: translateY(-10rem);
   
     &#skills {
-      transform: translateY(-20rem);
+      transform: translateY(-8rem);
     }
   }
 

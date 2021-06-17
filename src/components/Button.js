@@ -4,12 +4,14 @@ const Button = ({
   style="primary",
   text,
   link=null,
-  onClick=null
+  onClick=null,
+  external=false
 }) => {
   if (link) return (
     <a
       className={style}
       href={link}
+      target={external ? "_blank" : ""}
     >
       {text}
     </a>

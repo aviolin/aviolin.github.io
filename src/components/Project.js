@@ -89,12 +89,19 @@ const Project = ({
         </div>
         <div className={screenshotType === "mobile" ? "buttons spacer" : "buttons"} ref={ele => dataRefs.current.push(ele)}>
           <Button 
+            external={true}
+            link={projectLink}
             text={<><span><FontAwesomeIcon icon={faExternalLinkAlt} />&nbsp;&nbsp;Live Project</span></>}
           />
-          <Button
-            style="secondary"
-            text={<><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github Repo</>}
-          />
+          {
+            repoLink !== "" &&
+            <Button
+              external={true}
+              link={repoLink}
+              style="secondary"
+              text={<><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github Repo</>}
+            />
+          }
         </div>
       </div>
     </div>

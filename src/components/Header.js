@@ -22,7 +22,7 @@ const Header = ({
   return (
     <header>
       <div ref={headerRef}>
-        <div><a href="#" className="logo">arlo.adams()</a></div>
+        <div><a href="/" className="logo">arlo.adams()</a></div>
         <div className="hamburger">
           <button 
             className="theme-btn"
@@ -37,8 +37,8 @@ const Header = ({
         </div>
         <nav className="horizontal-nav">
           <ul>
-            <li><a href="#skills" className="link">Skills</a></li>
-            <li><a href="#projects" className="link">Projects</a></li>
+            <li><a href="#skills" className="link">About</a></li>
+            <li><a href="#my-work" className="link">My Work</a></li>
             <li><a href="#contact" className="link">Contact</a></li>
             <li>
               <button 

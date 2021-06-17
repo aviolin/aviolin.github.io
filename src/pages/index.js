@@ -27,10 +27,10 @@ const IndexPage = () => {
           <Hero />
           <Skills />
           <About />
-          <div className="anchor" id="projects"></div>
+          <div className="anchor" id="my-work"></div>
           <section className="full-bleed">
 
-            <h2>Check out some of my projects</h2>
+            <h2>Check out some of my work</h2>
 
             {projects.map((project, id) => {
               return (
