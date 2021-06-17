@@ -22,18 +22,18 @@ const Header = ({
   return (
     <header>
       <div ref={headerRef}>
-        <div className="logo"><a href="#" className="link">arlo.adams()</a></div>
+        <div><a href="#" className="logo">arlo.adams()</a></div>
         <div className="hamburger">
-        <button 
-          className="theme-btn"
-          onClick={toggleTheme}>
-            {
-              theme === "theme-light" ? 
-                <FontAwesomeIcon icon={faMoon} />
-              :
-                <FontAwesomeIcon icon={faSun} />
-            }
-        </button>
+          <button 
+            className="theme-btn"
+            onClick={toggleTheme}>
+              {
+                theme === "theme-light" ? 
+                  <FontAwesomeIcon icon={faMoon} />
+                :
+                  <FontAwesomeIcon icon={faSun} />
+              }
+          </button>
         </div>
         <nav className="horizontal-nav">
           <ul>

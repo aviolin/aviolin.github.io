@@ -4,6 +4,7 @@ const Button = ({
   style="primary",
   text,
   link=null,
+  onClick=null
 }) => {
   if (link) return (
     <a
@@ -17,7 +18,7 @@ const Button = ({
   return (
     <button 
       className={style}
-
+      onClick={onClick}
     >
       {text}
     </button>

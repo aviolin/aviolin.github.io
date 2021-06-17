@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import '../styles/normalize.css';
 import '../styles/main.scss';
 
+import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -25,6 +26,7 @@ const IndexPage = () => {
       {/*  <main> */}
           <Hero />
           <Skills />
+          <About />
           <div className="anchor" id="projects"></div>
           <section className="full-bleed">
 
