@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import { gsap } from 'gsap';
+import emailjs from 'emailjs-com'; 
 
 const Contact = ({
 
@@ -26,10 +27,14 @@ const Contact = ({
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    if (!successAnim.isActive()) {
-      successAnim.restart();
-    }
+    emailjs.sendForm(process.env.GATSBY_EMAIL_SERVICE_ID, process.env.GATSBY_EMAIL_TEMPLATE_ID, e.target, process.env.GATSBY_EMAIL_USER_ID)
+      .then((result) => {
+          if (!successAnim.isActive()) {
+            successAnim.play();
+          }
+      }, (error) => {
+          setErrors(":( Something went wrong. Please try again!");
+      });
   }
 
   const submitAnim = () => {
@@ -37,6 +42,7 @@ const Contact = ({
     let btnCheck = submitRef.current.querySelector(".checkmark");
     let btnEnvelope = submitRef.current.querySelector(".envelope");
 
+    successAnim.pause();
     successAnim.to(btnEnvelope, {duration: .8, x: -10, transform: "rotate(-20deg)", ease: "ease-in-out"});
     successAnim.to(btnEnvelope, {duration: 1, opacity: 0, x: 1000, y: -200, transform: "rotate(0deg)", ease: "ease-out"});
     successAnim.to(btnText, {duration: 1, opacity: 0}, "=-1");

@@ -13,7 +13,7 @@ const Footer = () => {
           <a href="https://aviolin.github.com" target="_blank" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
         </li>
         <li>
-          <a href="" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
+          <a href="https://codepen.io/arlo-adams" target="_blank" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
         </li>
       </ul>
       <p className="copyright">&copy; Arlo Adams, twentytwentyone</p>

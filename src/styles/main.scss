@@ -8,6 +8,8 @@ $themes: (
     color-background: #e7e7eb,
     color-background-alternate: #f3f3f8,
     color-background-faded: #e7e7eb,
+    color-success: #1ECD97,
+    color-error: rgb(204, 31, 31)
   ),
   dark: (
     color-primary: #4ba5ee,
@@ -18,6 +20,8 @@ $themes: (
     color-background: #2e2e2e,
     color-background-alternate: #272727,
     color-background-faded: #2e2e2e,
+    color-success: #1ECD97,
+    color-error: rgb(204, 31, 31),
   ),
 );
 
@@ -47,16 +51,22 @@ $themes: (
 
 $border-radius: 0;
 $border-width: 2px;
-$font-size-sm: 1rem;
-$font-size: 1.2rem;
-$font-size-lg: 1.5rem;
-$font-size-xlg: 1.8rem;
-$font-size-xxlg: 2.5rem;
 $page-padding: 2rem;
 $content-width: 1024px;
-
 $project-padding: 5rem;
 $project-padding-lg: 7rem;
+
+$font-size-sm: .8rem;
+$font-size: 1rem;
+$font-size-lg: 1.3rem;
+$font-size-xlg: 1.7rem;
+$font-size-xxlg: 2.2rem;
+
+$font-size-sm-w: 1rem;
+$font-size-w: 1.2rem;
+$font-size-lg-w: 1.5rem;
+$font-size-xlg-w: 1.8rem;
+$font-size-xxlg-w: 2.5rem;
 
 * {
   box-sizing: border-box;
@@ -219,7 +229,7 @@ a, button {
   padding: 1rem;
   width: 100%;
   margin-top: 1rem;
-  font-size: $font-size-sm;
+  font-size: $font-size;
   display: block;
   cursor: pointer;
   transition: .3s;
@@ -277,12 +287,15 @@ a, button {
       position: absolute;
       width: 1rem;
       height: $border-width;
-      background-color: rgb(204, 31, 31);
       bottom: -.5rem;
       left: 0;
       width: 0;
       transition: .4s;
       opacity: 0;
+
+      @include themify($themes) {
+        background-color: themed('color-error');
+      }
     }
 
     &:after {
@@ -335,7 +348,10 @@ a, button {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      color: #1ECD97;
+
+      @include themify($themes) {
+        color: themed('color-success');
+      }
     }
 
     &:hover {
@@ -589,7 +605,7 @@ section {
     border-bottom: $border-width solid transparent;
     display: block;
     width: 100%;
-    padding-bottom: 1.3rem;
+    padding-bottom: .8rem;
     transition: .2s ease-out;
     font-size: $font-size;
 
@@ -618,8 +634,8 @@ section {
   }
 
   textarea {
-    height: 3rem;
-    min-height: 3rem;
+    height: 2.3rem;
+    min-height: 2.3rem;
   }
 
   textarea:focus,
