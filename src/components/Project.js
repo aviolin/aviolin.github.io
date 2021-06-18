@@ -28,18 +28,27 @@ const Project = ({
 
     let tl = gsap.timeline();
 
-    if (id % 2 === 0) {
-      gsap.from(screenshotRef.current, {duration: 1, x: 100, opacity: 0, ease: "power2.out", delay: .3});
-      dataRefs.current.forEach(ref => {
-        gsap.fromTo(ref, {duration: 1, x: -100, opacity: 0}, {x:0, opacity: 1, delay: .3});
-      })
-  
+
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      if (id % 2 === 0) {
+        gsap.fromTo(dataRefs.current[0], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .3});
+        gsap.from(screenshotRef.current, {duration: .7, x: 100, opacity: 0, delay: .3});
+        gsap.fromTo(dataRefs.current[1], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .35});
+        gsap.fromTo(dataRefs.current[2], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .4});
+        gsap.fromTo(dataRefs.current[3], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .45});
+      } else {
+        gsap.fromTo(dataRefs.current[0], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .3});
+        gsap.from(screenshotRef.current, {duration: .7, x: -100, opacity: 0, delay: .3});
+        gsap.fromTo(dataRefs.current[1], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .35});
+        gsap.fromTo(dataRefs.current[2], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .4});
+        gsap.fromTo(dataRefs.current[3], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .45});
+      }
     } else {
-      gsap.from(screenshotRef.current, {duration: 1, x: -100, opacity: 0, delay: .3});
-      dataRefs.current.forEach(ref => {
-        gsap.fromTo(ref, {duration: 1, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .3});
-      })
-  
+      gsap.fromTo(dataRefs.current[0], {duration: .5, y: 100, opacity: 0}, {y: 0, opacity: 1, delay: .25});
+      gsap.from(screenshotRef.current, {duration: .5, y: 100, opacity: 0, delay: .3});
+      gsap.fromTo(dataRefs.current[1], {duration: .5, y: 100, opacity: 0}, {y: 0, opacity: 1, delay: .35});
+      gsap.fromTo(dataRefs.current[2], {duration: .5, y: 100, opacity: 0}, {y: 0, opacity: 1, delay: .4});
+      gsap.fromTo(dataRefs.current[3], {duration: .5, y: 100, opacity: 0}, {y: 0, opacity: 1, delay: .45});
     }
 
     setDoAnim(false);
