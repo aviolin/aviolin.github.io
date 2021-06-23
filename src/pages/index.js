@@ -39,6 +39,7 @@ const IndexPage = () => {
                   title={project.title}
                   screenshotType={project.screenshotType}
                   imageSrc={project.imageSrc}
+                  testAccount={project.testAccount ? project.testAccount : null}
                   description={project.description}
                   subdescription={project.technologies}
                   projectLink={project.liveLink}

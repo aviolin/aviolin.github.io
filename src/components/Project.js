@@ -12,6 +12,7 @@ const Project = ({
   screenshotType,
   imageSrc,
   description,
+  testAccount=null,
   subdescription,
   projectLink,
   repoLink,
@@ -92,7 +93,14 @@ const Project = ({
       <div className="project" ref={projectRef}>
         <h3 ref={ele => dataRefs.current.push(ele)}>{title}</h3>
         {screenshot}
-        <p ref={ele => dataRefs.current.push(ele)}>{description}</p>
+        <div ref={ele => dataRefs.current.push(ele)}>
+        <p>{description}</p>
+        {testAccount !== null && 
+          <p className="test-account">You may use this <b>test account</b> to test the project:<br/>
+          Email: <b>{testAccount.email}</b><br/>
+          Password: <b>{testAccount.password}</b></p>
+        }
+        </div>
         <div className="subdescription" ref={ele => dataRefs.current.push(ele)}>
           {subdescription}
         </div>
@@ -114,7 +122,7 @@ const Project = ({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Project;

@@ -14,7 +14,7 @@ $themes: (
   dark: (
     color-primary: #4ba5ee,
     color-primary-btn-text: #2e2e2e,
-    color-text: #aaabc4,
+    color-text: #c0c1d4,
     color-gray: #8d8ea0,
     color-subtle: #55505c,
     color-background: #2e2e2e,
@@ -519,6 +519,12 @@ section {
       font-size: $font-size;
       line-height: $font-size-xlg;
       margin-top: 2rem;
+
+      &.test-account {
+        @include themify($themes) {
+          color: themed('color-gray');
+        }
+      }
     }
     
     .subdescription {
