@@ -1,10 +1,10 @@
 $themes: (
   light: (
-    color-primary: #6d44b1,
+    color-primary: #227fd6,
     color-primary-btn-text: #f5f5f5,
     color-text: #45414b,
     color-gray: #8d8ea0,
-    color-subtle: #ddd,
+    color-subtle: #ccc,
     color-background: #e7e7eb,
     color-background-alternate: #f3f3f8,
     color-background-faded: #e7e7eb,
@@ -116,14 +116,13 @@ body {
 
 h2 {
   @include width-clamp;
-  font-weight: 100;
-  text-align: left;
+  text-align: center;
   width: 100%;
   padding: 0 $page-padding;
   font-size: $font-size-xxlg;
 
   @include themify($themes) {
-    color: themed('color-gray');
+    color: themed('color-dark');
   }
 }
 
@@ -163,7 +162,7 @@ header {
 }
 
 .hero {
-  text-align: left;
+  text-align: center;
   padding: $page-padding;
   min-height: calc(100vh - 5rem);
   display: grid;
@@ -386,7 +385,7 @@ a, button {
     background-color: transparent;
     border: none;
     position: relative;
-    text-align: left;
+    text-align: center;
     transition: .3s;
     padding: 1rem 0 0 0;
     white-space: pre;
@@ -454,6 +453,8 @@ section {
       max-width: 50ch;
       font-size: $font-size;
       line-height: $font-size-xlg;
+      text-align: left;
+      margin: 1rem auto;
     }
   }
 }
@@ -514,6 +515,10 @@ section {
   .project {
     padding: $project-padding $page-padding;
     @include width-clamp;
+
+    h3 {
+      text-align: center;
+    }
 
     p {
       font-size: $font-size;
@@ -577,9 +582,8 @@ section {
   }
 
   .email {
-    text-align: left;
+    text-align: center;
     font-size: $font-size;
-    font-weight: 100;
     margin-top: $project-padding;
 
     span {
@@ -655,7 +659,7 @@ section {
 
 
 footer {
-  text-align: left;
+  text-align: center;
   padding: $page-padding;
 
   ul {
@@ -845,10 +849,6 @@ footer {
 
 
 @media only screen and (min-width: 768px) {
-  h2 {
-    text-align: center;
-  }
-
   .anchor {
     transform: translateY(-10rem);
   
@@ -883,7 +883,6 @@ footer {
 
   button {
     &.copy-btn {
-      text-align: center;
       font-size: $font-size-xlg;
 
       @include themify($themes) {
@@ -893,7 +892,6 @@ footer {
       &:before {
         font-size: $font-size;
         line-height: 3rem;
-        text-align: center;
         opacity: 0;
       }
 
@@ -909,9 +907,15 @@ footer {
     }
   }
 
-  .hero {
-    text-align: center;
+  .about {
+    div {
+      p {
+        text-align: center;
+      }
+    }
+  }
 
+  .hero {
     .buttons {
       flex-direction: row;
       justify-content: center;
@@ -1001,15 +1005,9 @@ footer {
         justify-self: center;
       }
     }
-
-    .email {
-      text-align: center;
-    }
   }
 
   footer {
-    text-align: center;
-
     ul {
       display: flex;
       justify-content: center;

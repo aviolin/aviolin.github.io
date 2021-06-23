@@ -54,19 +54,10 @@ body {
 h2 {
   max-width: 1024px;
   margin: auto;
-  font-weight: 100;
-  text-align: left;
+  text-align: center;
   width: 100%;
   padding: 0 2rem;
   font-size: 2.2rem;
-}
-
-.theme-light h2 {
-  color: #8d8ea0;
-}
-
-.theme-dark h2 {
-  color: #8d8ea0;
 }
 
 h3 {
@@ -116,7 +107,7 @@ header .horizontal-nav {
 }
 
 .hero {
-  text-align: left;
+  text-align: center;
   padding: 2rem;
   min-height: calc(100vh - 5rem);
   display: -ms-grid;
@@ -139,7 +130,7 @@ header .horizontal-nav {
 }
 
 .theme-light .hero span {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark .hero span {
@@ -176,7 +167,7 @@ header .horizontal-nav {
 }
 
 .theme-light .hero .scroll-arrow-container .scroll-arrow {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark .hero .scroll-arrow-container .scroll-arrow {
@@ -233,8 +224,8 @@ a.primary, button.primary {
 
 .theme-light a.primary, .theme-light button.primary {
   color: #f5f5f5;
-  background-color: #6d44b1;
-  border-color: #6d44b1;
+  background-color: #227fd6;
+  border-color: #227fd6;
 }
 
 .theme-dark a.primary, .theme-dark button.primary {
@@ -248,7 +239,7 @@ a.primary:hover, button.primary:hover {
 }
 
 .theme-light a.primary:hover, .theme-light button.primary:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.primary:hover, .theme-dark button.primary:hover {
@@ -262,7 +253,7 @@ a.secondary, button.secondary {
 
 .theme-light a.secondary, .theme-light button.secondary {
   color: #8d8ea0;
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark a.secondary, .theme-dark button.secondary {
@@ -271,8 +262,8 @@ a.secondary, button.secondary {
 }
 
 .theme-light a.secondary:hover, .theme-light button.secondary:hover {
-  color: #6d44b1;
-  border-color: #6d44b1;
+  color: #227fd6;
+  border-color: #227fd6;
 }
 
 .theme-dark a.secondary:hover, .theme-dark button.secondary:hover {
@@ -316,7 +307,7 @@ a.link:after, button.link:after {
 }
 
 .theme-light a.link:after, .theme-light button.link:after {
-  background-color: #6d44b1;
+  background-color: #227fd6;
 }
 
 .theme-dark a.link:after, .theme-dark button.link:after {
@@ -324,7 +315,7 @@ a.link:after, button.link:after {
 }
 
 .theme-light a.link:hover, .theme-light button.link:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.link:hover, .theme-dark button.link:hover {
@@ -347,7 +338,7 @@ a.logo, button.logo {
 }
 
 .theme-light a.logo:hover, .theme-light button.logo:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.logo:hover, .theme-dark button.logo:hover {
@@ -388,7 +379,7 @@ a.contact-btn .checkmark, button.contact-btn .checkmark {
 }
 
 .theme-light a.contact-btn:hover, .theme-light button.contact-btn:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.contact-btn:hover, .theme-dark button.contact-btn:hover {
@@ -412,7 +403,7 @@ a.theme-btn:hover, button.theme-btn:hover {
 }
 
 .theme-light a.theme-btn:hover, .theme-light button.theme-btn:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.theme-btn:hover, .theme-dark button.theme-btn:hover {
@@ -427,7 +418,7 @@ a.copy-btn, button.copy-btn {
   background-color: transparent;
   border: none;
   position: relative;
-  text-align: left;
+  text-align: center;
   -webkit-transition: .3s;
   transition: .3s;
   padding: 1rem 0 0 0;
@@ -437,7 +428,7 @@ a.copy-btn, button.copy-btn {
 }
 
 .theme-light a.copy-btn, .theme-light button.copy-btn {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark a.copy-btn, .theme-dark button.copy-btn {
@@ -527,6 +518,8 @@ section {
   max-width: 50ch;
   font-size: 1rem;
   line-height: 1.7rem;
+  text-align: left;
+  margin: 1rem auto;
 }
 
 .skills {
@@ -606,7 +599,7 @@ section {
 }
 
 .theme-light .skills .skills-list .skill:hover {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark .skills .skills-list .skill:hover {
@@ -617,6 +610,10 @@ section {
   padding: 5rem 2rem;
   max-width: 1024px;
   margin: auto;
+}
+
+.project-wrapper .project h3 {
+  text-align: center;
 }
 
 .project-wrapper .project p {
@@ -701,9 +698,8 @@ section {
 }
 
 .contact .email {
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
-  font-weight: 100;
   margin-top: 5rem;
 }
 
@@ -752,7 +748,7 @@ section {
 .input-group input[type=email], .theme-light
 .input-group textarea {
   color: #45414b;
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .input-group input[type=text], .theme-dark
@@ -771,7 +767,7 @@ section {
 .theme-light .input-group input[type=text]:focus, .theme-light
 .input-group input[type=email]:focus, .theme-light
 .input-group textarea:focus {
-  border-color: #6d44b1;
+  border-color: #227fd6;
 }
 
 .theme-dark .input-group input[type=text]:focus, .theme-dark
@@ -796,7 +792,7 @@ section {
 .input-group input[type=email]:valid ~ label, .theme-light
 .input-group textarea:focus ~ label, .theme-light
 .input-group textarea:valid ~ label {
-  color: #6d44b1;
+  color: #227fd6;
 }
 
 .theme-dark .input-group input[type=text]:focus ~ label, .theme-dark
@@ -819,7 +815,7 @@ section {
 }
 
 footer {
-  text-align: left;
+  text-align: center;
   padding: 2rem;
 }
 
@@ -878,7 +874,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .mobile-container {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .mobile-container {
@@ -892,7 +888,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .mobile-container > span {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .mobile-container > span {
@@ -929,7 +925,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .mobile-container .circle {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .mobile-container .circle {
@@ -944,7 +940,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .mobile-container .rectangle {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .mobile-container .rectangle {
@@ -963,7 +959,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .mobile-container .image-container {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .mobile-container .image-container {
@@ -992,7 +988,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .desktop-container {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .desktop-container {
@@ -1008,7 +1004,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .desktop-container .circle {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .desktop-container .circle {
@@ -1024,7 +1020,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .desktop-container .image-container {
-  border-color: #ddd;
+  border-color: #ccc;
 }
 
 .theme-dark .screenshot .desktop-container .image-container {
@@ -1047,7 +1043,7 @@ footer .copyright {
 }
 
 .theme-light .screenshot .desktop-container .triangle {
-  border-bottom-color: #ddd;
+  border-bottom-color: #ccc;
 }
 
 .theme-dark .screenshot .desktop-container .triangle {
@@ -1068,9 +1064,6 @@ footer .copyright {
 }
 
 @media only screen and (min-width: 768px) {
-  h2 {
-    text-align: center;
-  }
   .anchor {
     -webkit-transform: translateY(-10rem);
             transform: translateY(-10rem);
@@ -1105,7 +1098,6 @@ footer .copyright {
     font-size: 1rem;
   }
   button.copy-btn {
-    text-align: center;
     font-size: 1.7rem;
   }
   .theme-light button.copy-btn {
@@ -1117,11 +1109,10 @@ footer .copyright {
   button.copy-btn:before {
     font-size: 1rem;
     line-height: 3rem;
-    text-align: center;
     opacity: 0;
   }
   .theme-light button.copy-btn:hover {
-    color: #6d44b1;
+    color: #227fd6;
   }
   .theme-dark button.copy-btn:hover {
     color: #4ba5ee;
@@ -1129,7 +1120,7 @@ footer .copyright {
   button.copy-btn:hover:before {
     opacity: 1;
   }
-  .hero {
+  .about div p {
     text-align: center;
   }
   .hero .buttons {
@@ -1237,12 +1228,6 @@ footer .copyright {
     max-width: 15rem;
     -ms-grid-column-align: center;
         justify-self: center;
-  }
-  .contact .email {
-    text-align: center;
-  }
-  footer {
-    text-align: center;
   }
   footer ul {
     display: -webkit-box;
