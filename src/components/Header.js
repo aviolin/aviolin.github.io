@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
-import { gsap } from 'gsap';
 
 const Header = ({
   toggleTheme,
@@ -11,7 +12,7 @@ const Header = ({
 
   const animateIn = () => {
     let tl = gsap.timeline();
-    tl.set(headerRef.current, { visibility: "visible"});
+    tl.set(headerRef.current, {visibility: "visible"});
     tl.from(headerRef.current, {duration: 2, autoAlpha: 0, ease: "power2.out", delay: .2});
   }
 

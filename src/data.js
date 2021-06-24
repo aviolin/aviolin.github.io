@@ -2,13 +2,13 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faSass, faJs, faHtml5, faPhp, faWordpress, faCss3, faNodeJs } from "@fortawesome/free-brands-svg-icons";
-import flashCardsLanding from './images/flash-cards-landing.png';
+//import flashCardsLanding from './images/flash-cards-landing.png';
 import flashCardsScreenshot from './images/flash-cards-screenshot.png';
 import nebulaEnsembleScreenshot from './images/nebula-ensemble.png';
-import annularFusionScreenshot from './images/annular-fusion-screenshot.png';
+//import annularFusionScreenshot from './images/annular-fusion-screenshot.png';
 import annularFusionMobileScreenshot from './images/annular-fusion-mobile-screenshot.png';
 import metronomeScreenshot from './images/metronome-screenshot.png';
-import metronomeScreenshotDesktop from './images/metronome-screenshot-desktop.png';
+//import metronomeScreenshotDesktop from './images/metronome-screenshot-desktop.png';
 
 export const projects = [
   {

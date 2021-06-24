@@ -38,7 +38,7 @@ const Hero = () => {
           link="#my-work"
         />
         <Button 
-          style="secondary"
+          classes="secondary"
           text={<><FontAwesomeIcon icon={faFilePdf} />&nbsp;&nbsp;Resume</>}
         />
       </div>

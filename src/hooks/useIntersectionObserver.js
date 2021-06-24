@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const useIntersectionObserver = (targetRef, callback, options=null) => {
-
   if (!options) 
-  options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.0
-  }
+    options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.0
+    }
 
   useEffect(() => {
     const observer = new IntersectionObserver(callback, options);

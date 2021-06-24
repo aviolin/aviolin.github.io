@@ -23,15 +23,12 @@ const IndexPage = () => {
     <div className={"theme-wrapper " + theme}>
       <div className="wrapper">
         <Header theme={theme} toggleTheme={toggleTheme}/>
-      {/*  <main> */}
           <Hero />
           <Skills />
           <About />
           <div className="anchor" id="my-work"></div>
           <section className="full-bleed">
-
             <h2>My selected work</h2>
-
             {projects.map((project, id) => {
               return (
                 <Project 
@@ -48,14 +45,12 @@ const IndexPage = () => {
                 />
               );
             })}
-
           </section>
           <Contact />
-        {/* </main> */}
         <Footer />
       </div>
     </div>
-  )
+  );
 }
 
 export default IndexPage

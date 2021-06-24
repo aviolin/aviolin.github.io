@@ -69,7 +69,7 @@ const Project = ({
           <div className="circle"></div>
           <div className="rectangle"></div>
           <div className="image-container">
-            <img src={imageSrc} />
+            <img src={imageSrc} alt="Project screenshot."/>
           </div>
         </div>
       </div>
@@ -79,7 +79,7 @@ const Project = ({
       <div className="screenshot" ref={screenshotRef}>
         <div className="desktop-container">
           <div className="image-container">
-            <img src={imageSrc} />
+            <img src={imageSrc} alt="Project screenshot."/>
           </div>
           <div className="circle"></div>
           <div className="triangle"></div>
@@ -115,7 +115,7 @@ const Project = ({
             <Button
               external={true}
               link={repoLink}
-              style="secondary"
+              classes="secondary"
               text={<><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github Repo</>}
             />
           }

@@ -7,13 +7,13 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          <a href="https://www.linkedin.com/in/arlo-adams/" target="_blank" className="link"><FontAwesomeIcon icon={faLinkedin} />&nbsp;&nbsp;LinkedIn</a>
+          <a href="https://www.linkedin.com/in/arlo-adams/" target="_blank" rel="noreferrer" className="link"><FontAwesomeIcon icon={faLinkedin} />&nbsp;&nbsp;LinkedIn</a>
         </li>
         <li>
-          <a href="https://github.com/aviolin/" target="_blank" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
+          <a href="https://github.com/aviolin/" target="_blank" rel="noreferrer" className="link"><FontAwesomeIcon icon={faGithub} />&nbsp;&nbsp;Github</a>
         </li>
         <li>
-          <a href="https://codepen.io/arlo-adams" target="_blank" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
+          <a href="https://codepen.io/arlo-adams" target="_blank" rel="noreferrer" className="link"><FontAwesomeIcon icon={faCodepen} />&nbsp;&nbsp;Codepen</a>
         </li>
       </ul>
       <p className="copyright">&copy; Arlo Adams, twentytwentyone</p>

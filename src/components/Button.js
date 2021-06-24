@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Button = ({
-  style="primary",
+  classes="primary",
   text,
   link=null,
   onClick=null,
@@ -9,22 +9,23 @@ const Button = ({
 }) => {
   if (link) return (
     <a
-      className={style}
+      className={classes}
       href={link}
       target={external ? "_blank" : ""}
+      rel={external ? "noreferrer" : ""}
     >
       {text}
     </a>
-  )
+  );
 
   return (
     <button 
-      className={style}
+      className={classes}
       onClick={onClick}
     >
       {text}
     </button>
-  )
+  );
 }
 
 export default Button;

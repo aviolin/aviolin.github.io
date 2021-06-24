@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faCheck } from '@fortawesome/free-solid-svg-icons';
-
 import { gsap } from 'gsap';
 import emailjs from 'emailjs-com'; 
 
-const Contact = ({
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faCheck } from '@fortawesome/free-solid-svg-icons';
 
-}) => {
+const Contact = () => {
   const clipboardRef = useRef(null);
   const submitRef = useRef(null);
 
