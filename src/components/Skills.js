@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faSass, faJs, faHtml5, faPhp, faWordpress, faGit, faNodeJs } from "@fortawesome/free-brands-svg-icons";
-import { gsap } from 'gsap';
-import useIntersectionObserver from '../hooks/useIntersectionObserver';
 
 const Skills = () => {
   const skillsRef = useRef(null);
@@ -15,6 +16,7 @@ const Skills = () => {
 
     let tl = gsap.timeline();
     let skills = document.querySelectorAll('.skill');
+    tl.set(skills, { visibility: "visible"});
     tl.from(skills, {duration: .7, opacity: 0, stagger: .1, delay: .2});
 
     setDoAnim(false);
@@ -23,8 +25,6 @@ const Skills = () => {
 
   return (
     <div className="skills full-bleed">
-      <div className="anchor" id="skills"></div>
-      {/* <h2>Skills & Technologies</h2> */}
       <div className="skills-list" ref={skillsRef}>
         <div className="skill">
           <FontAwesomeIcon icon={faReact} className="icon"/>
@@ -64,7 +64,7 @@ const Skills = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Skills;

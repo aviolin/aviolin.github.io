@@ -30,7 +30,7 @@ const IndexPage = () => {
           <div className="anchor" id="my-work"></div>
           <section className="full-bleed">
 
-            <h2>Check out some of my work</h2>
+            <h2>My selected work</h2>
 
             {projects.map((project, id) => {
               return (

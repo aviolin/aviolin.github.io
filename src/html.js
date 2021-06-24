@@ -18,6 +18,8 @@ export default function HTML(props) {
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Ubuntu+Mono&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet"/>
+
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import Button from './Button';
+import { gsap } from 'gsap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { gsap } from 'gsap';
+
+import Button from './Button';
 
 const Hero = () => {
   const titleRef = useRef(null);

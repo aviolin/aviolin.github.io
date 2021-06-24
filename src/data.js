@@ -66,7 +66,7 @@ export const projects = [
     title: "Nebula Ensemble",
     screenshotType: "desktop",
     imageSrc: nebulaEnsembleScreenshot,
-    description: `A website and custom WordPress theme for the modern music group "Nebula Ensemble" based in Denver, Colorado.`,
+    description: `A custom WordPress theme and website for the modern music group Nebula Ensemble.`,
     liveLink: "https://nebulaensemble.org",
     repoLink: "",
     technologies:

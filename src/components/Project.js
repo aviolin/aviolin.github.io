@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
-import Button from './Button';
+import React, { useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import useIntersectionObserver from '../hooks/useIntersectionObserver';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { gsap } from 'gsap';
 
-import useIntersectionObserver from '../hooks/useIntersectionObserver';
+import Button from './Button';
 
 const Project = ({
   title,
@@ -27,8 +28,7 @@ const Project = ({
     const [ entry ] = entries;
     if (!entry.isIntersecting || !doAnim) return;
 
-    let tl = gsap.timeline();
-
+    gsap.set(projectRef.current, { visibility: "visible" });
 
     if (window.matchMedia("(min-width: 768px)").matches) {
       if (id % 2 === 0) {

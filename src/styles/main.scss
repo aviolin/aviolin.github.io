@@ -88,10 +88,6 @@ body {
 
 .anchor {
   transform: translateY(-5rem);
-
-  &#skills {
-    transform: translateY(-20rem);
-  }
 }
 
 .wrapper {
@@ -281,7 +277,7 @@ a, button {
     position: relative;
     transition: .4s;
 
-    &:before, &:after {
+    &::before, &::after {
       content: " ";
       position: absolute;
       width: 1rem;
@@ -297,7 +293,7 @@ a, button {
       }
     }
 
-    &:after {
+    &::after {
       transition: width .2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
       @include themify($themes) {
         background-color: themed('color-primary');
@@ -309,7 +305,7 @@ a, button {
         color: themed('color-primary');
       }
 
-      &:before, &:after {
+      &::before, &::after {
         width: 100%;
         opacity: 1;
       }
@@ -378,9 +374,8 @@ a, button {
   }
 
   &.copy-btn {
-    font-weight: 100;
     font-family: "Courier New", monospace;
-    font-size: $font-size;
+    font-size: $font-size-lg;
     word-break: break-all;
     background-color: transparent;
     border: none;
@@ -400,7 +395,7 @@ a, button {
       animation: clipboard-anim 1s ease-in-out;
     }
 
-    &:before {
+    &::before {
       content: "\A{ copy to clipboard }";
       position: absolute;
       font-size: $font-size-sm;
@@ -455,6 +450,7 @@ section {
       line-height: $font-size-xlg;
       text-align: left;
       margin: 1rem auto;
+      visibility: hidden;
     }
   }
 }
@@ -462,7 +458,6 @@ section {
 .skills {
   padding: 3rem 0;
   margin-bottom: $project-padding;
-
   transition: background-color .5s;
 
   @include themify($themes) {
@@ -494,6 +489,8 @@ section {
       text-align: center;
       transition: transform .3s, color .3s;
       padding: .5rem;
+      visibility: hidden;
+
 
       .icon {
         font-size: 3rem;
@@ -514,6 +511,8 @@ section {
 .project-wrapper {
   .project {
     padding: $project-padding $page-padding;
+    visibility: hidden;
+
     @include width-clamp;
 
     h3 {
@@ -609,6 +608,20 @@ section {
     }
   }
 
+  &::after {
+    content: '';
+    width: 0;
+    height: $border-width;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width ease-out .3s;
+    
+    @include themify($themes) {
+      background-color: themed('color-primary');
+    }
+  }
+
   input[type=text],
   input[type=email],
   textarea {
@@ -620,6 +633,7 @@ section {
     padding-bottom: .8rem;
     transition: .2s ease-out;
     font-size: $font-size;
+    position: relative;
 
     @include themify($themes) {
       color: themed('color-text');
@@ -643,6 +657,9 @@ section {
         color: themed('color-primary');
       }
     }
+  }
+  &:hover::after {
+    width: 100%;
   }
 
   textarea {
@@ -851,10 +868,6 @@ footer {
 @media only screen and (min-width: 768px) {
   .anchor {
     transform: translateY(-10rem);
-  
-    &#skills {
-      transform: translateY(-8rem);
-    }
   }
 
   header {
@@ -889,7 +902,7 @@ footer {
         color: themed('color-text');
       }
 
-      &:before {
+      &::before {
         font-size: $font-size;
         line-height: 3rem;
         opacity: 0;
@@ -900,7 +913,7 @@ footer {
           color: themed('color-primary');
         }
   
-        &:before {
+        &::before {
           opacity: 1;
         }
       }

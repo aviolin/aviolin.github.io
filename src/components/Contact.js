@@ -12,7 +12,6 @@ const Contact = ({
   const submitRef = useRef(null);
 
   const [successAnim, setSuccessAnim] = useState(gsap.timeline({ paused: true}));
-  const [errorAnim, setErrorAnim] = useState(gsap.timeline({ paused: true}));
 
   const [inputs, setInputs] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState(null);
@@ -60,9 +59,7 @@ const Contact = ({
   return (
     <section>
       <div className="anchor" id="contact"></div>
-
-      <h2>Get in touch with me</h2>
-
+      <h2>Get in touch</h2>
       <div className="contact">
         <form onSubmit={(e) => sendEmail(e)}>
           <div className="input-group">
@@ -105,7 +102,7 @@ const Contact = ({
             <span className="checkmark"><FontAwesomeIcon icon={faCheck}/>&nbsp;&nbsp;Success</span>
           </button>
           {
-            errors ? <p>{errors}</p> : null
+            errors && <p>{errors}</p>
           }
         </form>
         <div className="email">
@@ -123,7 +120,7 @@ const Contact = ({
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export default Contact;
