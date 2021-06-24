@@ -2,7 +2,7 @@
 
 This is my personal web development portfolio made using Gatsby and some GSAP.
 
-View the portfolio live here: https://aviolin.github.io/
+View the portfolio live here: https://www.arlocodes.com/
 
 # Technologies
 * React
