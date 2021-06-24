@@ -16,7 +16,7 @@ export const projects = [
     screenshotType: "mobile",
     imageSrc: metronomeScreenshot,
     description: `A simple and accurate online metronome made using React.`,
-    liveLink: "https://aviolin.github.io/metronome/",
+    liveLink: "https://arlocodes.com/metronome/",
     repoLink: "https://github.com/aviolin/metronome/",
     technologies:
       <>
@@ -35,7 +35,7 @@ export const projects = [
       email: `testing@test.com`,
       password: `testing123`
     },
-    liveLink: "https://aviolin.github.io/flash-cards/",
+    liveLink: "https://arlocodes.com/flash-cards/",
     repoLink: "https://github.com/aviolin/flash-cards/",
     technologies:
       <>
@@ -51,7 +51,7 @@ export const projects = [
     screenshotType: "mobile",
     imageSrc: annularFusionMobileScreenshot,
     description: `A timer made in React and Node to help musicians perform "Annular Fusion" by Chappell Kingsland over Zoom.`,
-    liveLink: "https://aviolin.github.io/annular-fusion/",
+    liveLink: "https://arlocodes.com/annular-fusion/",
     repoLink: "https://github.com/aviolin/annular-fusion/",
     technologies:
       <>

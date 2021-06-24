@@ -23,7 +23,7 @@ const Header = ({
   return (
     <header>
       <div ref={headerRef}>
-        <div><a href="/portfolio" className="logo">arlo.adams()</a></div>
+        <div><a href="/" className="logo">arlo.adams()</a></div>
         <div className="hamburger">
           <button 
             className="theme-btn"
