@@ -550,7 +550,6 @@ section {
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
     }
   }  
 
@@ -932,7 +931,10 @@ footer {
     .buttons {
       flex-direction: row;
       justify-content: center;
-      gap: 1rem;
+
+      * + * {
+        margin-left: 1rem;
+      }
     }
   }
 
@@ -982,6 +984,10 @@ footer {
       .buttons {
         flex-direction: row;
         margin-bottom: $project-padding-lg;
+
+        * + * {
+          margin-left: 1rem;
+        }
       }
     }
 

@@ -658,7 +658,6 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1rem;
 }
 
 .project-wrapper:nth-child(odd) {
@@ -1148,7 +1147,9 @@ footer .copyright {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    gap: 1rem;
+  }
+  .hero .buttons * + * {
+    margin-left: 1rem;
   }
   .skills .skills-list .skill {
     -ms-flex-preferred-size: 5%;
@@ -1208,6 +1209,9 @@ footer .copyright {
         -ms-flex-direction: row;
             flex-direction: row;
     margin-bottom: 7rem;
+  }
+  .project-wrapper .project .buttons * + * {
+    margin-left: 1rem;
   }
   .project-wrapper:nth-child(odd) .project .screenshot {
     -ms-grid-column: 1;
