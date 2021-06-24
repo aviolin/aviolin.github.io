@@ -40,6 +40,7 @@ const Hero = () => {
         <Button 
           classes="secondary"
           text={<><FontAwesomeIcon icon={faFilePdf} />&nbsp;&nbsp;Resume</>}
+          link="ArloAdamsResume.pdf"
         />
       </div>
       <div className="scroll-arrow-container" ref={arrowRef}>
