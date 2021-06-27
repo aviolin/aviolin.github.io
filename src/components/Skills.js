@@ -40,7 +40,7 @@ const Skills = () => {
         </div>
         <div className="skill">
           <FontAwesomeIcon icon={faNodeJs} className="icon" />
-          <span>Node</span>
+          <span>Node.js</span>
         </div>
         <div className="skill">
           <FontAwesomeIcon icon={faFire} className="icon" />

@@ -56,7 +56,7 @@ export const projects = [
     technologies:
       <>
         <span><FontAwesomeIcon icon={faReact}/>&nbsp;&nbsp;React</span>
-        <span><FontAwesomeIcon icon={faNodeJs}/>&nbsp;&nbsp;Node</span>
+        <span><FontAwesomeIcon icon={faNodeJs}/>&nbsp;&nbsp;Node.js</span>
         <span><FontAwesomeIcon icon={faJs}/>&nbsp;&nbsp;JavaScript</span>
         <span><FontAwesomeIcon icon={faSass}/>&nbsp;&nbsp;SCSS (Sass)</span>
         <span><FontAwesomeIcon icon={faHtml5}/>&nbsp;&nbsp;HTML5</span>
