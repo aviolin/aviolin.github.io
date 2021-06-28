@@ -1,4 +1,5 @@
-/* DEPRECATION WARNING: As of Dart Sass 2.0.0, !global assignments won't be able to declare new variables. */ 
+/* DEPRECATION WARNING: As of Dart Sass 2.0.0, 
+   !global assignments won't be able to declare new variables. */ 
 :root {
   $theme-map: null;
 }
@@ -33,18 +34,15 @@ $themes: (
 // implementation here: https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1
 @mixin themify($themes: $themes) {
   @each $theme, $map in $themes {
-
     .theme-#{$theme} & {
       $theme-map: () !global;
       @each $key, $submap in $map {
         $value: map-get(map-get($themes, $theme), '#{$key}');
         $theme-map: map-merge($theme-map, ($key: $value)) !global;
       }
-
       @content;
       $theme-map: null !global;
     }
-
   }
 }
 
@@ -52,7 +50,7 @@ $themes: (
   @return map-get($theme-map, $key);
 }
 
- $border-radius: 0;
+$border-radius: 0;
 $border-width: 2px;
 $page-padding: 2rem;
 $content-width: 1024px;
@@ -1040,9 +1038,3 @@ footer {
     }
   }
 }
-
-
-
-/* ######################## 
-  Testing
-   ######################## */
