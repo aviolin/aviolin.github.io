@@ -47,10 +47,10 @@ export const projects = [
       </>
   },
   {
-    title: "Annular Fusion Timer",
+    title: "Synchronous Timer",
     screenshotType: "mobile",
     imageSrc: annularFusionMobileScreenshot,
-    description: `A timer made in React and Node to help musicians perform "Annular Fusion" by Chappell Kingsland over Zoom.`,
+    description: `A timer that can sync up across devices made using React, and Node.js and WebSockets as a collaboration with musicians to aid in performing a piece of music called "Annular Fusion" over Zoom.`,
     liveLink: "https://www.arlocodes.com/annular-fusion/",
     repoLink: "https://github.com/aviolin/annular-fusion/",
     technologies:

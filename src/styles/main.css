@@ -1,4 +1,5 @@
-/* DEPRECATION WARNING: As of Dart Sass 2.0.0, !global assignments won't be able to declare new variables. */
+/* DEPRECATION WARNING: As of Dart Sass 2.0.0, 
+   !global assignments won't be able to declare new variables. */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -510,7 +511,7 @@ section {
 }
 
 .about div p {
-  max-width: 50ch;
+  max-width: 53ch;
   font-size: 1rem;
   line-height: 1.7rem;
   text-align: left;
@@ -1263,8 +1264,4 @@ footer .copyright {
     margin: 1rem;
   }
 }
-
-/* ######################## 
-  Testing
-   ######################## */
 /*# sourceMappingURL=main.css.map */
