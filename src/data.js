@@ -50,7 +50,7 @@ export const projects = [
     title: "Synchronous Timer",
     screenshotType: "mobile",
     imageSrc: annularFusionMobileScreenshot,
-    description: `A timer that can sync up across devices made using React, and Node.js and WebSockets as a collaboration with musicians to aid in performing a piece of music called "Annular Fusion" over Zoom.`,
+    description: `A timer that can sync up across devices. Made using React, Node.js, Express and WebSockets as a collaboration with musicians to aid in performing a piece of music called "Annular Fusion" over Zoom.`,
     liveLink: "https://www.arlocodes.com/annular-fusion/",
     repoLink: "https://github.com/aviolin/annular-fusion/",
     technologies:

@@ -122,24 +122,42 @@ header .horizontal-nav {
   margin: 0;
 }
 
-.hero span {
-  font-size: 2.2rem;
+.hero .heading .char {
+  font-size: 2.5rem;
+  opacity: 0;
+  -webkit-animation: slide-up 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) forwards;
+          animation: slide-up 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) forwards;
+  -webkit-animation-delay: calc(50ms * var(--char-index));
+          animation-delay: calc(50ms * var(--char-index));
 }
 
-.theme-light .hero span {
+.theme-light .hero .heading .char {
   color: #227fd6;
 }
 
-.theme-dark .hero span {
+.theme-dark .hero .heading .char {
   color: #4ba5ee;
+}
+
+.hero .heading .word {
+  overflow: hidden;
 }
 
 .hero p {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.7rem;
-  margin-top: 3rem;
+  margin: 3rem auto 1rem auto;
   max-width: 50ch;
+}
+
+.hero p .word {
+  opacity: 0;
+  -webkit-animation: fade-in 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) both;
+          animation: fade-in 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) both;
+  -webkit-animation-delay: calc(100ms * var(--word-index) + 1.5s);
+          animation-delay: calc(100ms * var(--word-index) + 1.5s);
+  overflow: hidden;
 }
 
 .hero .buttons {
@@ -150,6 +168,13 @@ header .horizontal-nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: auto;
+  opacity: 0;
+  max-width: 50ch;
+  -webkit-animation: fade-in 1s ease-in-out forwards;
+          animation: fade-in 1s ease-in-out forwards;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
 }
 
 .hero .scroll-arrow-container {
@@ -159,8 +184,11 @@ header .horizontal-nav {
 .hero .scroll-arrow-container .scroll-arrow {
   font-size: 2rem;
   margin-top: 5rem;
-  -webkit-animation: arrow-anim 1s ease-in-out alternate infinite;
-          animation: arrow-anim 1s ease-in-out alternate infinite;
+  opacity: 0;
+  -webkit-animation: arrow-anim 1s ease-in-out alternate infinite, fade-in 1s ease-in-out forwards;
+          animation: arrow-anim 1s ease-in-out alternate infinite, fade-in 1s ease-in-out forwards;
+  -webkit-animation-delay: 3.5s;
+          animation-delay: 3.5s;
 }
 
 .theme-light .hero .scroll-arrow-container .scroll-arrow {
@@ -169,6 +197,50 @@ header .horizontal-nav {
 
 .theme-dark .hero .scroll-arrow-container .scroll-arrow {
   color: #4ba5ee;
+}
+
+@-webkit-keyframes slide-up {
+  from {
+    opacity: 1;
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    -webkit-transform: translateY(1.5em) rotate(-45deg);
+            transform: translateY(1.5em) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    -webkit-transform-origin: bottom center;
+            transform-origin: bottom center;
+    -webkit-transform: translateY(1.5em) rotate(-45deg);
+            transform: translateY(1.5em) rotate(-45deg);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes arrow-anim {
@@ -334,12 +406,24 @@ a.logo, button.logo {
   padding: 0;
 }
 
+a.logo .char, button.logo .char {
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
 .theme-light a.logo:hover, .theme-light button.logo:hover {
   color: #227fd6;
 }
 
 .theme-dark a.logo:hover, .theme-dark button.logo:hover {
   color: #4ba5ee;
+}
+
+a.logo:hover .char, button.logo:hover .char {
+  -webkit-animation: bounce-anim 1s ease-in-out infinite alternate;
+          animation: bounce-anim 1s ease-in-out infinite alternate;
+  -webkit-animation-delay: calc(100ms * var(--char-index));
+          animation-delay: calc(100ms * var(--char-index));
 }
 
 a.contact-btn, button.contact-btn {
@@ -460,6 +544,28 @@ a.copy-btn::before, button.copy-btn::before {
   color: #c0c1d4;
 }
 
+@-webkit-keyframes bounce-anim {
+  50% {
+    -webkit-transform: translateY(-0.3em);
+            transform: translateY(-0.3em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bounce-anim {
+  50% {
+    -webkit-transform: translateY(-0.3em);
+            transform: translateY(-0.3em);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
 @-webkit-keyframes clipboard-anim {
   0% {
     -webkit-transform: scale(0.9);
@@ -508,6 +614,7 @@ section {
 
 .about div {
   padding: 0 2rem;
+  visibility: hidden;
 }
 
 .about div p {
@@ -516,7 +623,14 @@ section {
   line-height: 1.7rem;
   text-align: left;
   margin: 1rem auto;
-  visibility: hidden;
+}
+
+.about div.shown .word {
+  -webkit-animation: fade-in 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) both;
+          animation: fade-in 1s cubic-bezier(0.49, -0.01, 0.1, 1.53) both;
+  -webkit-animation-delay: calc(100ms * var(--line-index));
+          animation-delay: calc(100ms * var(--line-index));
+  opacity: 0;
 }
 
 .skills {
@@ -1152,6 +1266,9 @@ footer .copyright {
   }
   .hero .buttons * + * {
     margin-left: 1rem;
+  }
+  .hero .heading .char {
+    font-size: 3.5rem;
   }
   .skills .skills-list .skill {
     -ms-flex-preferred-size: 5%;

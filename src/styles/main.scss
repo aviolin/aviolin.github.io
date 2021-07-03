@@ -175,25 +175,47 @@ header {
     margin: 0;
   }
 
-  span {
-    font-size: $font-size-xxlg;
-
+  .heading .char {
+    font-size: 2.5rem;
     @include themify($themes) {
       color: themed('color-primary');
     }
+    opacity: 0;
+    animation: slide-up 1s cubic-bezier(.49,-0.01,.1,1.53) forwards;
+    animation-delay: calc(50ms * var(--char-index));  
+  }
+
+  .heading .word {
+    overflow: hidden;
   }
 
   p {
     font-weight: 400;
     font-size: $font-size;
     line-height: $font-size-xlg;
-    margin-top: 3rem;
+    margin: 3rem auto 1rem auto;
     max-width: 50ch;
+  }
+
+  p .word {
+    opacity: 0;
+    animation: fade-in 1s cubic-bezier(.49,-0.01,.1,1.53) both;
+    animation-delay: calc(100ms * var(--word-index) + 1.5s);  
+
+    @if var(--line-index) == "1" {
+      background-color: red;
+    }
+    overflow: hidden;
   }
 
   .buttons {
     display: flex;
     flex-direction: column;
+    margin: auto;
+    opacity: 0;
+    max-width: 50ch;
+    animation: fade-in 1s ease-in-out forwards;
+    animation-delay: 3s;  
   }
 
   .scroll-arrow-container {
@@ -202,12 +224,39 @@ header {
     .scroll-arrow {
       font-size: 2rem;
       margin-top: 5rem;
-      animation: arrow-anim 1s ease-in-out alternate infinite;
+      opacity: 0;
+      animation: arrow-anim 1s ease-in-out alternate infinite,
+                 fade-in 1s ease-in-out forwards;
+      animation-delay: 3.5s;
 
       @include themify($themes) {
         color: themed('color-primary');
       }
     }
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 1;
+    transform-origin: bottom center;
+    transform: 
+      translateY(1.5em)
+      rotate(-45deg)   
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
@@ -321,9 +370,19 @@ a, button {
     margin: 0;
     padding: 0; 
 
+    .char {
+      transition: .3s;
+    }
+
     &:hover {
       @include themify($themes) {
         color: themed('color-primary');
+      }
+
+      .char {
+        
+        animation: bounce-anim 1s ease-in-out infinite alternate;
+        animation-delay: calc(100ms * var(--char-index));  
       }
     }
   }
@@ -416,6 +475,15 @@ a, button {
   }
 }
 
+@keyframes bounce-anim {
+  50% {
+    transform: translateY(-.3em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 @keyframes clipboard-anim {
   0% {
     transform: scale(.9);
@@ -444,6 +512,7 @@ section {
 
   div {
     padding: 0 $page-padding;
+    visibility: hidden;
 
     p {
       max-width: 53ch;
@@ -451,7 +520,12 @@ section {
       line-height: $font-size-xlg;
       text-align: left;
       margin: 1rem auto;
-      visibility: hidden;
+    }
+
+    &.shown .word {
+      animation: fade-in 1s cubic-bezier(.49,-0.01,.1,1.53) both;
+      animation-delay: calc(100ms * var(--line-index));
+      opacity: 0;
     }
   }
 }
@@ -936,6 +1010,10 @@ footer {
       * + * {
         margin-left: 1rem;
       }
+    }
+
+    .heading .char {
+      font-size: 3.5rem;
     }
   }
 
