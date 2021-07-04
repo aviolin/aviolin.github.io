@@ -27,7 +27,7 @@ const Hero = () => {
       <h1>
         <span data-splitting="" className="heading">Hello, I'm Arlo Adams.</span>
         <p data-splitting="" className="subheading">
-          I am a <b>Front-End Web Developer</b> creating interactive online experiences in Denver, Colorado.
+          I am a <b>Front-End Web Developer</b> crafting interactive online experiences in Denver, Colorado.
         </p>
       </h1>
       <div className="buttons">

@@ -1,9 +1,3 @@
-/* DEPRECATION WARNING: As of Dart Sass 2.0.0, 
-   !global assignments won't be able to declare new variables. */ 
-:root {
-  $theme-map: null;
-}
-
 $themes: (
   light: (
     color-primary: #227fd6,
@@ -15,7 +9,9 @@ $themes: (
     color-background-alternate: #f3f3f8,
     color-background-faded: #e7e7eb,
     color-success: #1ECD97,
-    color-error: rgb(204, 31, 31)
+    color-error: rgb(204, 31, 31),
+    color-moon: #227fd6,
+    color-sun: #d6a622,
   ),
   dark: (
     color-primary: #4ba5ee,
@@ -28,6 +24,8 @@ $themes: (
     color-background-faded: #2e2e2e,
     color-success: #1ECD97,
     color-error: rgb(204, 31, 31),
+    color-moon: #227fd6,
+    color-sun: #d3d622,
   ),
 );
 
@@ -192,7 +190,7 @@ header {
   p {
     font-weight: 400;
     font-size: $font-size;
-    line-height: $font-size-xlg;
+    line-height: 1.5rem;
     margin: 3rem auto 1rem auto;
     max-width: 50ch;
   }
@@ -215,7 +213,7 @@ header {
     opacity: 0;
     max-width: 50ch;
     animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 3s;  
+    animation-delay: 3.2s;  
   }
 
   .scroll-arrow-container {
@@ -423,6 +421,17 @@ a, button {
     margin: 0;
     transition: .3s;
     transform: scale(1.7);
+    .sun {
+      @include themify($themes) {
+        color: themed('color-sun');
+      }
+    }
+
+    .moon {
+      @include themify($themes) {
+        color: themed('color-moon');
+      }
+    }
 
     &:hover {
       transform: scale(2);
@@ -551,7 +560,7 @@ section {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: $page-padding;
+    padding: 0 $page-padding;
     padding-bottom: 0;
     @include width-clamp;
     position: relative;
@@ -560,12 +569,11 @@ section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-basis: 33%;
+      flex-basis: 50%;
       text-align: center;
       transition: transform .3s, color .3s;
-      padding: .5rem;
+      padding: .5rem 0;
       visibility: hidden;
-
 
       .icon {
         font-size: 3rem;
@@ -938,6 +946,15 @@ footer {
   }
 }
 
+@media only screen and (min-width: 360px) {
+  .skills {
+    .skills-list {
+      .skill {
+        flex-basis: 33%;
+      }
+    }
+  }
+}
 
 @media only screen and (min-width: 768px) {
   .anchor {

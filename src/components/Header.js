@@ -33,9 +33,9 @@ const Header = ({
             onClick={toggleTheme}>
               {
                 theme === "theme-light" ? 
-                  <FontAwesomeIcon icon={faMoon} />
+                  <FontAwesomeIcon icon={faMoon} className="moon" />
                 :
-                  <FontAwesomeIcon icon={faSun} />
+                  <FontAwesomeIcon icon={faSun} className="sun" />
               }
           </button>
         </div>
@@ -50,9 +50,9 @@ const Header = ({
                 onClick={toggleTheme}>
                   {
                     theme === "theme-light" ? 
-                      <FontAwesomeIcon icon={faMoon} />
+                      <FontAwesomeIcon icon={faMoon} className="moon" />
                     :
-                      <FontAwesomeIcon icon={faSun} />
+                      <FontAwesomeIcon icon={faSun} className="sun" />
                   }
               </button>
             </li>
