@@ -67,7 +67,7 @@ export const projects = [
     title: "Freelance Violinist Website",
     screenshotType: "desktop",
     imageSrc: violinWebsiteScreenshot,
-    description: `A custom built website using VueJS for my business as a freelance violinist and teacher. Features a custom built music playlist using Howler.js.`,
+    description: `A website using VueJS for my business as a freelance violinist and teacher. Features a custom built music playlist using Howler.js.`,
     liveLink: "https://arloadams.com",
     repoLink: "https://github.com/aviolin/violin/",
     technologies:
