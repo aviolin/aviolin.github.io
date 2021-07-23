@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire } from '@fortawesome/free-solid-svg-icons';
-import { faReact, faSass, faJs, faHtml5, faPhp, faWordpress, faCss3, faNodeJs } from "@fortawesome/free-brands-svg-icons";
+import { faReact, faSass, faJs, faHtml5, faPhp, faWordpress, faCss3, faNodeJs, faVuejs } from "@fortawesome/free-brands-svg-icons";
 //import flashCardsLanding from './images/flash-cards-landing.png';
 import flashCardsScreenshot from './images/flash-cards-screenshot.png';
 import nebulaEnsembleScreenshot from './images/nebula-ensemble.png';
@@ -9,6 +9,7 @@ import nebulaEnsembleScreenshot from './images/nebula-ensemble.png';
 import annularFusionMobileScreenshot from './images/annular-fusion-mobile-screenshot.png';
 import metronomeScreenshot from './images/metronome-screenshot.png';
 //import metronomeScreenshotDesktop from './images/metronome-screenshot-desktop.png';
+import violinWebsiteScreenshot from './images/violin-screenshot.png';
 
 export const projects = [
   {
@@ -63,6 +64,21 @@ export const projects = [
       </>
   },
   {
+    title: "Freelance Violinist Website",
+    screenshotType: "desktop",
+    imageSrc: violinWebsiteScreenshot,
+    description: `A custom built website using VueJS for my business as a freelance violinist and teacher. Features a custom built music playlist using Howler.js.`,
+    liveLink: "https://arloadams.com",
+    repoLink: "https://github.com/aviolin/violin/",
+    technologies:
+      <>
+        <span><FontAwesomeIcon icon={faVuejs}/>&nbsp;&nbsp;VueJS</span>
+        <span><FontAwesomeIcon icon={faJs}/>&nbsp;&nbsp;JavaScript</span>
+        <span><FontAwesomeIcon icon={faSass}/>&nbsp;&nbsp;SCSS (Sass)</span>
+        <span><FontAwesomeIcon icon={faHtml5}/>&nbsp;&nbsp;HTML5</span>
+      </>
+  },
+  {
     title: "Nebula Ensemble",
     screenshotType: "desktop",
     imageSrc: nebulaEnsembleScreenshot,
@@ -73,7 +89,7 @@ export const projects = [
       <>
         <span><FontAwesomeIcon icon={faPhp}/>&nbsp;&nbsp;PHP</span>
         <span><FontAwesomeIcon icon={faJs}/>&nbsp;&nbsp;JavaScript</span>
-        <span><FontAwesomeIcon icon={faCss3}/>&nbsp;&nbsp;CSS3</span>
+        <span><FontAwesomeIcon icon={faCss3}/>&nbsp;&nbsp;CSS</span>
         <span><FontAwesomeIcon icon={faWordpress}/>&nbsp;&nbsp;WordPress</span>
         <span><FontAwesomeIcon icon={faHtml5}/>&nbsp;&nbsp;HTML5</span>
       </>
