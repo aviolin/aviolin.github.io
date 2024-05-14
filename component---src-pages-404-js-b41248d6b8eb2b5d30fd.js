@@ -1,2 +1,0 @@
-(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[883],{9616:function(e,t,r){"use strict";r.r(t);var l=r(7294),a=r(7004),n=r(3375);t.default=function(){return l.createElement("div",{className:"theme-wrapper theme-dark error404"},l.createElement("div",{className:"wrapper"},l.createElement("h1",null,"Oh no! This page does not exist."),l.createElement(a.Z,{style:"primary",text:"View Portfolio",link:"/"}),l.createElement(n.Z,null)))}}}]);
-//# sourceMappingURL=component---src-pages-404-js-b41248d6b8eb2b5d30fd.js.map
