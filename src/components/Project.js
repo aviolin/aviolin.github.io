@@ -32,17 +32,17 @@ const Project = ({
 
     if (window.matchMedia("(min-width: 768px)").matches) {
       if (id % 2 === 0) {
-        gsap.fromTo(dataRefs.current[0], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .0});
-        gsap.from(screenshotRef.current, {duration: .7, x: 100, opacity: 0, delay: .3});
-        gsap.fromTo(dataRefs.current[1], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .35});
-        gsap.fromTo(dataRefs.current[2], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .4});
-        gsap.fromTo(dataRefs.current[3], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .45});
+        gsap.fromTo(dataRefs.current[0], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.from(screenshotRef.current, {duration: .7, y: 100, opacity: 0, delay: .15, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[1], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[2], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[3], {duration: .7, x: -100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
       } else {
-        gsap.fromTo(dataRefs.current[0], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .0});
-        gsap.from(screenshotRef.current, {duration: .7, x: -100, opacity: 0, delay: .3});
-        gsap.fromTo(dataRefs.current[1], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .35});
-        gsap.fromTo(dataRefs.current[2], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .4});
-        gsap.fromTo(dataRefs.current[3], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .45});
+        gsap.fromTo(dataRefs.current[0], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.from(screenshotRef.current, {duration: .7, y: 100, opacity: 0, delay: .15, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[1], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[2], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
+        gsap.fromTo(dataRefs.current[3], {duration: .7, x: 100, opacity: 0}, {x: 0, opacity: 1, delay: .0, ease: 'power2.out'});
       }
     } else {
       gsap.fromTo(dataRefs.current[0], {duration: .5, y: 100, opacity: 0}, {y: 0, opacity: 1, delay: .0});

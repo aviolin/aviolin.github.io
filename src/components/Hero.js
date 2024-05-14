@@ -27,7 +27,8 @@ const Hero = () => {
       <h1>
         <span data-splitting="" className="heading">Hello, I'm Arlo Adams.</span>
         <p data-splitting="" className="subheading">
-          I am a <b>Front-End Web Developer</b> crafting interactive online experiences in Denver, Colorado.
+          I am a <b>Full-Stack Developer</b> based in Denver, Colorado. I enjoy spending my days crafting unique interactive online experiences and solving interesting problems in the software world. If you are looking for a collaborator, feel free to reach out.
+
         </p>
       </h1>
       <div className="buttons">

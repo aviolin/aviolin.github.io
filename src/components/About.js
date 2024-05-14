@@ -31,7 +31,7 @@ const About = () => {
       <div className="anchor" id="about"></div>
       <h2>About me</h2>
       <div data-splitting="" ref={textRef}>
-        <p>I am a web developer with experience building both the front and back-end of websites and applications. I love to solve problems, and programming allows me to tackle interesting problems each day.</p>
+        <p>I am a software engineer with experience building full-stack web applications, standalone desktop apps, mobile apps and video games. I love to solve problems, and programming allows me to tackle interesting problems each day.</p>
         <p>When I'm not programming, I work as a freelance violinist, performing in various ensembles throughout Colorado. With a musical background, I thoroughly enjoy creating applications that help make musicians’ lives easier.</p>
       </div>
     </section>

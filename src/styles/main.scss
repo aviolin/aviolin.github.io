@@ -198,7 +198,7 @@ header {
   p .word {
     opacity: 0;
     animation: fade-in 1s cubic-bezier(.49,-0.01,.1,1.53) both;
-    animation-delay: calc(100ms * var(--word-index) + 1.5s);  
+    animation-delay: calc(33ms * var(--word-index) + 1.5s);  
 
     @if var(--line-index) == "1" {
       background-color: red;
