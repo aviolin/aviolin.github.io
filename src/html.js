@@ -11,8 +11,8 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <title>arlo.adams() - Front-End Web Developer in Denver, CO</title>
-        <meta name="description" content="Arlo Adams is a Front-End Web Developer based in Denver, Colorado."/>
+        <title>arlo.adams() - Full-Stack Developer in Denver, CO</title>
+        <meta name="description" content="Arlo Adams is a Full-Stack Developer based in Denver, Colorado."/>
         {props.headComponents}
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet"></link>
