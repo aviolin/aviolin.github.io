@@ -1,6 +1,6 @@
 # Developer Portfolio
 
-This is my personal web development portfolio made using Gatsby and some GSAP.
+This is my personal development portfolio, made using Gatsby.
 
 View the portfolio live here: https://arlocodes.com/
 
@@ -8,7 +8,6 @@ View the portfolio live here: https://arlocodes.com/
 * React
 * Gatsby
 * SCSS (Sass)
-* GSAP
 * JavaScript
 * CSS3
 * HTML5
