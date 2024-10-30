@@ -1023,6 +1023,10 @@ footer {
     .buttons {
       flex-direction: row;
       justify-content: center;
+      
+      a.primary {
+        max-width: 12rem;
+      }
 
       * + * {
         margin-left: 1rem;

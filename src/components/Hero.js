@@ -4,7 +4,7 @@ import 'splitting/dist/splitting.css';
 import Splitting from 'splitting';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilePdf, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
 import Button from './Button';
 
@@ -35,11 +35,6 @@ const Hero = () => {
         <Button
           text="My Work"
           link="#my-work"
-        />
-        <Button 
-          classes="secondary"
-          text={<><FontAwesomeIcon icon={faFilePdf} />&nbsp;&nbsp;Resume</>}
-          link="ArloAdamsResume.pdf"
         />
       </div>
       <div className="scroll-arrow-container">
